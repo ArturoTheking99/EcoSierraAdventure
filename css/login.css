@@ -1,0 +1,259 @@
+:root {
+  --verde-oscuro: #1b4332;
+  --verde-bosque: #2d6a4f;
+  --verde-acento: #40916c;
+  --madera: #d4a373;
+  --crema: #f8f9fa;
+  --texto: #1e293b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(20, 48, 36, 0.92)),
+              url('https://unsplash.com') center/cover no-repeat fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: var(--texto);
+}
+
+.portal-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transition: max-width 0.3s ease;
+}
+
+.portal-card.modo-panel {
+  max-width: 880px;
+}
+
+.portal-header {
+  background: var(--verde-oscuro);
+  color: #ffffff;
+  padding: 24px;
+  text-align: center;
+  border-bottom: 4px solid var(--madera);
+}
+
+.portal-header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.portal-header p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.portal-body {
+  padding: 28px;
+}
+
+.role-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.role-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid var(--verde-bosque);
+  background: transparent;
+  color: var(--verde-oscuro);
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.role-btn.active {
+  background: var(--verde-bosque);
+  color: #ffffff;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+  margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--verde-acento);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  background: var(--verde-bosque);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-submit:hover {
+  background: var(--verde-oscuro);
+}
+
+.demo-credentials {
+  margin-top: 18px;
+  background: #f0fdf4;
+  border: 1px dashed var(--verde-acento);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.btn-demo {
+  margin-top: 8px;
+  background: var(--madera);
+  color: #1e293b;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  color: var(--verde-bosque);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.dashboard {
+  display: none;
+}
+
+.dash-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.badge-role {
+  display: inline-block;
+  margin-top: 4px;
+  background: var(--madera);
+  color: #1e293b;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.btn-logout {
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.stat-box {
+  background: var(--crema);
+  padding: 16px;
+  border-radius: 10px;
+  border-left: 4px solid var(--verde-bosque);
+}
+
+.stat-box span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.stat-box h3 {
+  font-size: 1.3rem;
+  color: var(--verde-oscuro);
+  margin-top: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 11px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background: var(--verde-oscuro);
+  color: #ffffff;
+}
+
+.btn-accion {
+  background: var(--verde-acento);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}

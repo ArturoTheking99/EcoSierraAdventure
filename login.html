@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso | EcoSierra Adventure</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <div class="portal-card" id="tarjetaPortal">
+    <div class="portal-header">
+      <h1>🌲 EcoSierra Adventure</h1>
+      <p>Sierra de Chihuahua · Portal de Acceso</p>
+    </div>
+
+    <div class="portal-body" id="seccionLogin">
+      <div class="role-selector">
+        <button type="button" class="role-btn active" id="btnTabEmpleado" onclick="seleccionarRol('empleado')">Trabajador</button>
+        <button type="button" class="role-btn" id="btnTabUsuario" onclick="seleccionarRol('usuario')">Usuario / Cliente</button>
+      </div>
+
+      <div class="alert-error" id="errorLogin">
+        Usuario o contraseña incorrectos. Verifica tus datos.
+      </div>
+
+      <form onsubmit="procesarLogin(event)">
+        <div class="form-group">
+          <label for="inputUsuario">Usuario</label>
+          <input type="text" id="inputUsuario" placeholder="Ingresa tu usuario" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Contraseña</label>
+          <input type="password" id="inputPassword" placeholder="••••••••••••" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Iniciar Sesión</button>
+      </form>
+
+      <div class="demo-credentials" id="cajaDemo">
+        <strong>Credenciales Demo (Trabajador / Staff):</strong><br>
+        Usuario: <code>empleado_sierra</code> | Contraseña: <code>Sierra#2026Emp</code><br>
+        <button type="button" class="btn-demo" onclick="rellenarDemo()">Autocompletar acceso</button>
+      </div>
+
+      <a href="index.html" class="back-link">← Regresar a EcoSierra Adventure</a>
+    </div>
+
+    <div class="portal-body dashboard" id="panelEmpleado">
+      <div class="dash-top">
+        <div>
+          <h2>Panel de Operaciones · Arturo</h2>
+          <span class="badge-role">Trabajador / Administración</span>
+        </div>
+        <button class="btn-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span>Cabañas Disponibles</span>
+          <h3>12 Totales</h3>
+        </div>
+        <div class="stat-box">
+          <span>Reservaciones</span>
+          <h3 id="contadorReservas">3 Activas</h3>
+        </div>
+        <div class="stat-box">
+          <span>Rutas ATV Hoy</span>
+          <h3>4 Salidas</h3>
+        </div>
+      </div>
+
+      <h3>Gestión de Reservas en Tiempo Real</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Folio</th>
+            <th>Huésped</th>
+            <th>Cabaña</th>
+            <th>Tarifa</th>
+            <th>Estado</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaReservasBody"></tbody>
+      </table>
+
+      <a href="index.html" class="back-link">← Ver sitio público</a>
+    </div>
+
+    <div class="portal-body dashboard" id="panelUsuario">
+      <div class="dash-top">
+        <div>
+          <h2>Bienvenido, Viajero Chihuahua</h2>
+          <span class="badge-role">Cuenta de Cliente · Nivel Explorador</span>
+        </div>
+        <button class="btn-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span>Puntos EcoSierra</span>
+          <h3>450 pts</h3>
+        </div>
+        <div class="stat-box">
+          <span>Beneficio Activo</span>
+          <h3>Noche de Fogata Gratis</h3>
+        </div>
+      </div>
+
+      <h3>Solicitar Nueva Reserva Rápida</h3>
+      <p style="font-size: 0.9rem; margin: 8px 0 14px;">Tu solicitud aparecerá automáticamente en el panel del trabajador para su confirmación.</p>
+
+      <form onsubmit="crearReservaCliente(event)">
+        <div class="form-group">
+          <label for="selectCabanaCliente">Elige tu cabaña</label>
+          <select id="selectCabanaCliente">
+            <option value="Cabaña Bosque (4 pers.)">Cabaña Bosque — $2,800 MXN / noche</option>
+            <option value="Cabaña Río (6 pers.)">Cabaña Río — $3,900 MXN / noche</option>
+            <option value="Cabaña Montaña (2 pers.)">Cabaña Montaña — $2,300 MXN / noche</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Enviar Solicitud de Reserva</button>
+      </form>
+
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
